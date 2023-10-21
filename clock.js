@@ -18,3 +18,19 @@ secondsElement.textContent = seconds;
 
 updateClock();
 setInterval(updateClock, 1000);
+
+const toggleBtn = document.querySelector('#toggle-button')
+
+let format = '24 Hr';
+toggleBtn.innerHTML = `Change Format : ${format}`;
+function changeFormat(){
+    if(format === '24 Hr'){
+        format = '12 Hr';
+    }
+    else{
+        format = '24 Hr'
+    }
+    toggleBtn.innerHTML = `Change Format : ${format}`;
+}
+toggleBtn.addEventListener('click', changeFormat)
+
