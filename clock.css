@@ -1,7 +1,4 @@
 body {
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
     height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
@@ -67,9 +64,5 @@ body {
 #Am-Pm{
     display: flex;
     flex-direction: column;
-    margin-right: 40px;
-    
-}
-.inactive{
-    opacity: 20%;
+    margin-right: 40px;   
 }
