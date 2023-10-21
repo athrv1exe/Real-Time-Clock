@@ -1,63 +1,70 @@
-const aM = document.getElementById('AM') 
-const pM = document.getElementById('PM') 
+const aM = document.getElementById('AM');
+const pM = document.getElementById('PM');
 const hourElement = document.getElementById('hours');
 const minutesElement = document.getElementById('minutes');
 const secondsElement = document.getElementById('seconds');
-let hours = 0;
+let temp2 = 0;
+let format = '12 Hr';
 
 function updateClock() {
-        
-    const now = new Date();
-    const hourFormat = String(now.getHours()).padStart(2, '0');
-    const minutes = String(now.getMinutes()).padStart(2, '0');
-    const seconds = String(now.getSeconds()).padStart(2, '0');
+  const now = new Date();
+  const temp = now.getHours();
+  temp2 = +temp;
 
-    minutesElement.textContent = minutes;
-    secondsElement.textContent = seconds;
-    hourElement.textContent = hourFormat;
+  let hourFormat;
+  const minutes = String(now.getMinutes()).padStart(2, '0');
+  const seconds = String(now.getSeconds()).padStart(2, '0');
 
-    const temp = hourElement.textContent;
-    hours = +temp;
-    console.log(hours + ' ' + typeof hours)
+  minutesElement.textContent = minutes;
+  secondsElement.textContent = seconds;
 
-    // if hours is less than 12 then reduce opacity of PM else reduce opacity of AM
-    if(hours != 0){
-        isAmPm(hours)
-        
-    }
+  if (format === '12 Hr') {
+    hourFormat = twelveHourFormat(temp2);
+  } else {
+    hourFormat = String(temp2).padStart(2, '0');
+  }
+
+  hourElement.textContent = hourFormat;
+
+  if (temp2 !== 0) {
+    isAmPm(temp2);
+  }
 }
-    
-function isAmPm(hrs){
-    if(hrs < 12) {
-        pM.style.opacity = '10%'
-        aM.style.opacity = '100%'
-    }
-    else{
-        aM.style.opacity = '10%'
-        pM.style.opacity = '100%'
 
-    }
-}    
+function twelveHourFormat(hours) {
+  if (hours === 0) {
+    return 12;
+  }
+  if (hours <= 12) {
+    return String(hours);
+  }
+  return String('0' + (hours - 12));
+}
 
-    // Update the clock immediately and then every second
+function isAmPm(hrs) {
+  if (hrs < 12) {
+    pM.style.opacity = '10%';
+    aM.style.opacity = '100%';
+  } else {
+    aM.style.opacity = '10%';
+    pM.style.opacity = '100%';
+  }
+}
 
+function changeFormat() {
+  if (format === '24 Hr') {
+    format = '12 Hr';
+  } else {
+    format = '24 Hr';
+  }
+  toggleBtn.innerHTML = `Change Format to ${format}`;
+  updateClock();
+}
+
+const toggleBtn = document.querySelector('#toggle-button');
+toggleBtn.innerHTML = `Change Format to ${format}`;
+toggleBtn.addEventListener('click', changeFormat);
+
+// Update the clock immediately and then every second
 updateClock();
 setInterval(updateClock, 1000);
-
-const toggleBtn = document.querySelector('#toggle-button')
-
-let format = '12 Hr';
-toggleBtn.innerHTML = `Change Format to ${format}`;
-function changeFormat(){
-    if(format === '24 Hr'){
-        format = '12 Hr';
-    }
-    else{
-        format = '24 Hr'
-    }
-    toggleBtn.innerHTML = `Change Format to ${format}`;
-}
-toggleBtn.addEventListener('click', changeFormat)
-
-
-
