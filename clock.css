@@ -26,6 +26,7 @@ body {
     width: fit-content;
     display: flex;
     flex-direction: column;
+    
 }
 .card {
     backdrop-filter: blur(8px) saturate(137%);
@@ -37,6 +38,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 1px solid wheat;
 }
 #btn-div{
     height: 100px;
@@ -46,11 +48,11 @@ body {
 }
 
 #toggle-button{
+    border: 1px solid wheat;
     color: #ffffffd4;
     margin-top:20px;
     height: 4rem;
     border-radius: 6px ;
-    border: none;
     backdrop-filter: blur(8px) saturate(137%);
     -webkit-backdrop-filter: blur(8px) saturate(137%);
     background-color: rgba(17, 25, 40, 0.27);

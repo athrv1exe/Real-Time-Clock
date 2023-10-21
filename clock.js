@@ -57,12 +57,12 @@ function changeFormat() {
   } else {
     format = '24 Hr';
   }
-  toggleBtn.innerHTML = `Change Format to ${format}`;
+  toggleBtn.innerHTML = format == '12 Hr' ? 'Change Format to 24 Hr' : 'Change Format to 12 Hr';
   updateClock();
 }
 
 const toggleBtn = document.querySelector('#toggle-button');
-toggleBtn.innerHTML = `Change Format to ${format}`;
+toggleBtn.innerHTML = format == '12 Hr' ? 'Change Format to 24 Hr' : 'Change Format to 12 Hr';
 toggleBtn.addEventListener('click', changeFormat);
 
 // Update the clock immediately and then every second
