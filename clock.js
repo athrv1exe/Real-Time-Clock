@@ -1,17 +1,24 @@
-
 function updateClock() {
 const now = new Date();
-const hours = String(now.getHours()).padStart(2, '0');
+const hourFormat = String(now.getHours()).padStart(2, '0');
 const minutes = String(now.getMinutes()).padStart(2, '0');
 const seconds = String(now.getSeconds()).padStart(2, '0');
 
-const hoursElement = document.getElementById('hours');
+const hourElement = document.getElementById('hours');
 const minutesElement = document.getElementById('minutes');
 const secondsElement = document.getElementById('seconds');
 
-hoursElement.textContent = hours;
 minutesElement.textContent = minutes;
 secondsElement.textContent = seconds;
+hourElement.textContent = hourFormat;
+
+// let hour = +hourFormat;
+// if(hour > 12){
+//     hour = hour % 12;
+    
+// }
+// else{
+// }
 }
 
 // Update the clock immediately and then every second
@@ -21,8 +28,8 @@ setInterval(updateClock, 1000);
 
 const toggleBtn = document.querySelector('#toggle-button')
 
-let format = '24 Hr';
-toggleBtn.innerHTML = `Change Format : ${format}`;
+let format = '12 Hr';
+toggleBtn.innerHTML = `Change Format to ${format}`;
 function changeFormat(){
     if(format === '24 Hr'){
         format = '12 Hr';
@@ -30,7 +37,7 @@ function changeFormat(){
     else{
         format = '24 Hr'
     }
-    toggleBtn.innerHTML = `Change Format : ${format}`;
+    toggleBtn.innerHTML = `Change Format to ${format}`;
 }
 toggleBtn.addEventListener('click', changeFormat)
 
