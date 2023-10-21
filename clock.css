@@ -1,11 +1,10 @@
 body {
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
     height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
-    /* background-color: #45474B; */
     background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1124&q=100');
     background-position: center;
     background-repeat: no-repeat;
@@ -23,9 +22,13 @@ body {
     text-align: center;
     margin-left: 40px;
     margin-right: 30px;
-    /* display: none; */
 }
 
+#container{
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+}
 .card {
     backdrop-filter: blur(8px) saturate(137%);
     -webkit-backdrop-filter: blur(8px) saturate(137%);
@@ -33,22 +36,27 @@ body {
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.125);
     text-align: center;
-    /* width: 45rem; */
     display: flex;
     align-items: center;
     justify-content: center;
 }
+#btn-div{
+    height: 100px;
+    width: 200px;
+    width: 100%;
+}
 
 #toggle-button{
-    /* font-size: 1em; */
+    color: #ffffffd4;
     margin-top:20px;
-    /* width: 6rem; */
     height: 3rem;
     border-radius: 6px ;
     border: none;
     backdrop-filter: blur(8px) saturate(137%);
     -webkit-backdrop-filter: blur(8px) saturate(137%);
     background-color: rgba(17, 25, 40, 0.27);
+    float: right;
+    margin-right: 8px ;
 }
 
 .mini-text{
@@ -60,4 +68,8 @@ body {
     display: flex;
     flex-direction: column;
     margin-right: 40px;
+    
+}
+.inactive{
+    opacity: 20%;
 }
