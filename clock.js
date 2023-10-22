@@ -35,12 +35,18 @@ function twelveHourFormat(hours) {
   if (hours === 0) {
     return 12;
   }
-  if (hours <= 12) {
-    return String(hours);
+  if (hours <= 9) {
+    return String( '0' + hours);
   }
-  return String('0' + (hours - 12));
-}
+  else if(hours > 9 && hours <= 12){
+    return String(hours)
+  }
+  else if(hours > 12 && hours <= 21){
+    return String( '0' + (hours - 12));
+  }
 
+  return String((hours - 12));
+}
 function isAmPm(hrs) {
   if (hrs < 12) {
     pM.style.opacity = '10%';
